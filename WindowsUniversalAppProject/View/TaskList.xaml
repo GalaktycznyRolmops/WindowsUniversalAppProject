@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="Cw5.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cw5"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button Content="login"
+                Command="{Binding GoToLoginScreen}"/>
+        <TextBox Text="{Binding ElementNameToAdd, Mode=TwoWay}"/>
+        <Button Content="Add element"
+                Command="{Binding AddElementCommand}"/>
+
+        <ListBox ItemsSource="{Binding tasksCollection}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Title}"/>
+                        <Button Content="Select"
+                         Command="{Binding GoToElement}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+
+    </StackPanel>
+</Page>
