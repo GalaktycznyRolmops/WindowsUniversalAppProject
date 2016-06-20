@@ -18,11 +18,11 @@ namespace WindowsUniversalAppProject.ViewModels
     {
         public TaskViewModel()
         {
-            Debug.Write("public taskviewmodel()");
             DownloadTasksFromRest();
         }
 
         private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
+
         public string GenerateNewID()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -44,6 +44,7 @@ namespace WindowsUniversalAppProject.ViewModels
         public async void DownloadTasksFromRest()
         {
             tasksCollection = new ObservableCollection<TaskModel>();
+            tasksCollection.Clear();
             string apiUrl = "http://windowsphoneuam.azurewebsites.net/api/todotasks?OwnerId=" + localSetting.Values["userLogin"];
             HttpClient client = new HttpClient();
             string jsonString = await client.GetStringAsync(new Uri(apiUrl));
@@ -53,8 +54,6 @@ namespace WindowsUniversalAppProject.ViewModels
             {
                 tasksCollection.Add(task);
             }
-
-
         }
 
 

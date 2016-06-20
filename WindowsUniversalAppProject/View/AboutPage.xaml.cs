@@ -29,7 +29,7 @@ namespace WindowsUniversalAppProject.View
 
         private void GoToMainScreen(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(MainPage));
+            Window.Current.Content = new MainPage();
         }
     }
 }

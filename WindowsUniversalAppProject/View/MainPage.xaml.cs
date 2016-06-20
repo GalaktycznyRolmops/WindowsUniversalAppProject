@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Navigation;
 using WindowsUniversalAppProject.Model;
 using WindowsUniversalAppProject.View;
 using WindowsUniversalAppProject.ViewModels;
+using WindowsUniversalAppsProject.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -38,6 +39,7 @@ namespace WindowsUniversalAppProject
         }
 
         private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
+        public ViewModelLocator ViewModelLocator = new ViewModelLocator();
 
         private void CheckIfLogged()
         {
@@ -52,6 +54,7 @@ namespace WindowsUniversalAppProject
         private void GoToListScreen(object sender, RoutedEventArgs e)
         {
             Object userName = localSetting.Values["userLogin"];
+            DataContext = ViewModelLocator.MainViewModel;
             if (userName == null)
             {
                 if (LoginBox.Text != "Enter your username here")
@@ -69,7 +72,7 @@ namespace WindowsUniversalAppProject
 
         private void GoToAboutPage(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AboutPage));
+            Window.Current.Content = new AboutPage();
         }
 
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)

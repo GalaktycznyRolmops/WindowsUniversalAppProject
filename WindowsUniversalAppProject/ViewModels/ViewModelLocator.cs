@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace WindowsUniversalAppsProject.ViewModels
         public ViewModelLocator()
         {
             MainViewModel = new TaskViewModel();
+            Debug.Write("PRZECHODZI PRZEZ LOCATORA");
         }
     }
 }

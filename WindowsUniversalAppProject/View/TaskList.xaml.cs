@@ -26,31 +26,31 @@ namespace WindowsUniversalAppProject.View
 
     public sealed partial class TaskList : Page
     {
-        public static ViewModelLocator ViewModelLocator = new ViewModelLocator();
+        public ViewModelLocator ViewModelLocator = new ViewModelLocator();
         private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public TaskList()
         {
             Object userName = localSetting.Values["userLogin"];
+            
             this.InitializeComponent();
             DataContext = ViewModelLocator.MainViewModel;
             WhoIsLogged.Text = userName.ToString();
         }
-
+        /*
         public TaskViewModel ViewModel
         {
             get
             {
                 return DataContext as TaskViewModel;
             }
-        }
+        }*/
 
         private void Logout(object sender, RoutedEventArgs e)
         {
             localSetting.Values["userLogin"] = null;
             Window.Current.Content = new MainPage();
         }
-
 
         private void AddElementCommand(object sender, RoutedEventArgs e)
         {
