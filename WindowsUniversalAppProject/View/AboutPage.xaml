@@ -1,15 +1,18 @@
 ﻿<Page
-    x:Class="WindowsUniversalAppProject.MainPage"
+    x:Class="WindowsUniversalAppProject.View.AboutPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:WindowsUniversalAppProject"
+    xmlns:local="using:WindowsUniversalAppProject.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox TextWrapping="Wrap" Text="Hello XAML"/>
-        <Button Content="przejdz do listy"
-                Command="{Binding GoToListScreen}"/>
+        <TextBlock Text="ABOUT:"/>
+        <TextBlock Text="Made by:"/>
+        <TextBlock Text="Dominik Szczeszyński"/>
+        <TextBlock Text="E-mail"/>
+        <TextBlock Text="dominiksznt@interia.pl"/>
+        <Button Content="Back" Click="GoToMainScreen"/>
     </StackPanel>
 </Page>

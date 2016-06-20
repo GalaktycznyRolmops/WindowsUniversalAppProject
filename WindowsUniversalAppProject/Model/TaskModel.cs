@@ -7,34 +7,25 @@ using System.Threading.Tasks;
 
 namespace WindowsUniversalAppProject.Model
 {
-    public class TaskModel : INotifyPropertyChanged
+    public class TaskModel
     {
-        public string Id { get; set; }
+ 
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Value { get; set; }
         public string OwnerId { get; set; }
         public string CreatedAt { get; set; }
 
-        public TaskModel(string Id, string Title, string Value, string OwnerId, string CreatedAt)
+        public TaskModel() { }
+
+        public TaskModel(int id, string title, string value, string ownerId, string createdAt)
         {
-            this.Id = Id;
-            this.Title = Title;
-            this.Value = Value;
-            this.OwnerId = OwnerId;
-            this.CreatedAt = CreatedAt;
+            this.Id = id;
+            this.Title = title;
+            this.Value = value;
+            this.OwnerId = ownerId;
+            this.CreatedAt = createdAt;
         }
 
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
     }
 }

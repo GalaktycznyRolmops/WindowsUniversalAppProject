@@ -1,26 +1,24 @@
 ﻿<Page
-    x:Class="Cw5.MainPage"
+    x:Class="WindowsUniversalAppProject.View.TaskList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Cw5"
+    xmlns:local="using:WindowsUniversalAppProject.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button Content="login"
-                Command="{Binding GoToLoginScreen}"/>
-        <TextBox Text="{Binding ElementNameToAdd, Mode=TwoWay}"/>
-        <Button Content="Add element"
-                Command="{Binding AddElementCommand}"/>
+        <TextBlock x:Name="WhoIsLogged" />
+        <Button Content="logout"
+                Click="Logout"/>
 
-        <ListBox ItemsSource="{Binding tasksCollection}">
+        <ListBox ItemsSource="{Binding TasksCollection}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Path=Title}"/>
-                        <Button Content="Select"
-                         Command="{Binding GoToElement}"/>
+                        <TextBlock Text="{Binding Path=Value}"/>
+                        <TextBlock Text="{Binding Path=CreatedAt}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
