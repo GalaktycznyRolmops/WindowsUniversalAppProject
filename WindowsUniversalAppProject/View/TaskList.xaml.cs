@@ -37,14 +37,6 @@ namespace WindowsUniversalAppProject.View
             DataContext = ViewModelLocator.MainViewModel;
             WhoIsLogged.Text = userName.ToString();
         }
-        /*
-        public TaskViewModel ViewModel
-        {
-            get
-            {
-                return DataContext as TaskViewModel;
-            }
-        }*/
 
         private void Logout(object sender, RoutedEventArgs e)
         {
@@ -52,10 +44,9 @@ namespace WindowsUniversalAppProject.View
             Window.Current.Content = new MainPage();
         }
 
-        private void AddElementCommand(object sender, RoutedEventArgs e)
+        private void AddTask(object sender, RoutedEventArgs e)
         {
-            
-
+            Window.Current.Content = new AddNewTask();
         }
 
     }

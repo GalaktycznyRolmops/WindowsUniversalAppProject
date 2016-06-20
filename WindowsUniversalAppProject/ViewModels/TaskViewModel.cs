@@ -23,14 +23,6 @@ namespace WindowsUniversalAppProject.ViewModels
 
         private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-        public string GenerateNewID()
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            var random = new Random();
-            return new string(Enumerable.Repeat(chars, 8)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
         private ObservableCollection<TaskModel> tasksCollection;
         public ObservableCollection<TaskModel> TasksCollection
         {

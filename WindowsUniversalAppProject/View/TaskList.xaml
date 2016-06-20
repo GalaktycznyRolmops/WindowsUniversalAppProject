@@ -11,7 +11,8 @@
         <TextBlock x:Name="WhoIsLogged" />
         <Button Content="logout"
                 Click="Logout"/>
-
+        <Button Content="add new"
+                Click="AddTask"/>
         <ListBox ItemsSource="{Binding TasksCollection}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
