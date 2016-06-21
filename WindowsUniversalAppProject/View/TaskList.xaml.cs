@@ -29,6 +29,7 @@ namespace WindowsUniversalAppProject.View
         public ViewModelLocator ViewModelLocator = new ViewModelLocator();
         private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
         private int selectedTask;
+        App thisApp = Application.Current as App;
 
         public TaskList()
         {
@@ -58,6 +59,11 @@ namespace WindowsUniversalAppProject.View
             Window.Current.Content = new AddNewTask();
         }
 
+        private void EditTask(object sender, RoutedEventArgs e)
+        {
+            Window.Current.Content = new EditTaskPage();
+        }
+
         private async void DeleteTask(object sender, RoutedEventArgs e)
         {
             this.ViewModel.TasksCollection.RemoveAt(MainList.SelectedIndex);
@@ -72,6 +78,7 @@ namespace WindowsUniversalAppProject.View
             TaskModel select = (sender as ListBox).SelectedItem as TaskModel;
             if (select != null)
             {
+                thisApp.selectedTask = select;
                 selectedTask = select.Id;
             }
         }

@@ -15,6 +15,8 @@
                 Click="AddTask"/>
         <Button Content="delete selected"
                 Click="DeleteTask"/>
+        <Button Content="edit selected"
+                Click="EditTask"/>
         <ListBox x:Name="MainList" SelectionChanged="SelectionChanged" ItemsSource="{Binding TasksCollection}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
