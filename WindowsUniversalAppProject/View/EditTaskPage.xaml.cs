@@ -35,11 +35,9 @@ namespace WindowsUniversalAppProject.View
         {
             WindowsUniversalAppProject.Model.TaskModel AfterEdit = new Model.TaskModel();
 
-            DateTimeOffset time = DateTimeOffset.Now;
-            string formattedDate = String.Format("{0:d/M/yyyy HH:mm:ss}", time);
             AfterEdit.Id = thisApp.selectedTask.Id;
             AfterEdit.OwnerId = thisApp.selectedTask.OwnerId;
-            AfterEdit.CreatedAt = formattedDate;
+            AfterEdit.CreatedAt = thisApp.selectedTask.CreatedAt;
             AfterEdit.Title = TitleBox.Text;
             AfterEdit.Value = DescBox.Text;
 

@@ -22,8 +22,8 @@ namespace WindowsUniversalAppProject.ViewModels
         }
 
         private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
-
         private ObservableCollection<TaskModel> tasksCollection;
+
         public ObservableCollection<TaskModel> TasksCollection
         {
             get { return tasksCollection; }

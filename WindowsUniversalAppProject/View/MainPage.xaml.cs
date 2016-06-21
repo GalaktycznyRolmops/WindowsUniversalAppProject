@@ -29,8 +29,9 @@ namespace WindowsUniversalAppProject
     /// </summary>
     /// 
     public sealed partial class MainPage : Page
-    { 
-        
+    {
+        private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
+        public ViewModelLocator ViewModelLocator = new ViewModelLocator();
 
         public MainPage()
         {
@@ -38,8 +39,6 @@ namespace WindowsUniversalAppProject
             CheckIfLogged();
         }
 
-        private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
-        public ViewModelLocator ViewModelLocator = new ViewModelLocator();
 
         private void CheckIfLogged()
         {
