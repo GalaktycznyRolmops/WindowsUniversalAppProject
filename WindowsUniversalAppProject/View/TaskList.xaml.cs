@@ -28,14 +28,23 @@ namespace WindowsUniversalAppProject.View
     {
         public ViewModelLocator ViewModelLocator = new ViewModelLocator();
         private ApplicationDataContainer localSetting = Windows.Storage.ApplicationData.Current.LocalSettings;
+        private int selectedTask;
 
         public TaskList()
         {
             Object userName = localSetting.Values["userLogin"];
-            
+
             this.InitializeComponent();
             DataContext = ViewModelLocator.MainViewModel;
             WhoIsLogged.Text = userName.ToString();
+        }
+
+        public TaskViewModel ViewModel
+        {
+            get
+            {
+                return DataContext as TaskViewModel;
+            }
         }
 
         private void Logout(object sender, RoutedEventArgs e)
@@ -49,5 +58,22 @@ namespace WindowsUniversalAppProject.View
             Window.Current.Content = new AddNewTask();
         }
 
+        private async void DeleteTask(object sender, RoutedEventArgs e)
+        {
+            this.ViewModel.TasksCollection.RemoveAt(MainList.SelectedIndex);
+            string apiUrl = "http://windowsphoneuam.azurewebsites.net/api/todotasks";
+            var objClint = new System.Net.Http.HttpClient();
+            System.Net.Http.HttpResponseMessage respon = await objClint.DeleteAsync(apiUrl + "/" + selectedTask);
+            string responJsonText = await respon.Content.ReadAsStringAsync();
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TaskModel select = (sender as ListBox).SelectedItem as TaskModel;
+            if (select != null)
+            {
+                selectedTask = select.Id;
+            }
+        }
     }
 }

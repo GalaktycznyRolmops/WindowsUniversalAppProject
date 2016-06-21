@@ -13,7 +13,9 @@
                 Click="Logout"/>
         <Button Content="add new"
                 Click="AddTask"/>
-        <ListBox ItemsSource="{Binding TasksCollection}">
+        <Button Content="delete selected"
+                Click="DeleteTask"/>
+        <ListBox x:Name="MainList" SelectionChanged="SelectionChanged" ItemsSource="{Binding TasksCollection}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
