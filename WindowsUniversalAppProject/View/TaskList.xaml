@@ -7,28 +7,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="WhoIsLogged" />
-        <Button Content="logout"
-                Click="Logout"/>
-        <Button Content="add new"
-                Click="AddTask"/>
-        <Button Content="delete selected"
-                Click="DeleteTask"/>
-        <Button Content="edit selected"
-                Click="EditTask"/>
-        <ListBox x:Name="MainList" SelectionChanged="SelectionChanged" ItemsSource="{Binding TasksCollection}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Title}"/>
-                        <TextBlock Text="{Binding Path=Value}"/>
-                        <TextBlock Text="{Binding Path=CreatedAt}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+    <Page.Resources>
+        <DataTemplate x:Key="TasksCollectionTemplate" >
+            <Border>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="taskTitle" Text="{Binding Path=Title}" FontSize="18"/>
+                    <TextBlock x:Name="taskDescription" Text="{Binding Path=Value}" FontSize="14"/>
+                    <TextBlock x:Name="taskData" Text="{Binding Path=CreatedAt}" FontSize="12" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </Page.Resources>
 
+    <StackPanel Background="Wheat">
+        <TextBlock x:Name="WhoIsLogged" HorizontalAlignment="Center"/>
+
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="logout"
+                Click="Logout" 
+                    Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    />
+            <Button Content="add new"
+            	Click="AddTask"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+            	/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="delete selected"
+                Click="DeleteTask"
+                Grid.Column="0"
+                    HorizontalAlignment="Stretch"
+                    />
+            <Button Content="edit selected"
+                Click="EditTask"
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    />
+        </Grid>
+        <StackPanel>
+            <ListBox x:Name="MainList" SelectionChanged="SelectionChanged" ItemsSource="{Binding TasksCollection}"
+                 ItemTemplate="{StaticResource TasksCollectionTemplate}">
+            </ListBox>
+        </StackPanel>
 
     </StackPanel>
 </Page>

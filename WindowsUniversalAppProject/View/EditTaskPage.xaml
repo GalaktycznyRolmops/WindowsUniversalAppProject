@@ -7,12 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel Background="Wheat">
         <TextBlock Text="Enter title"/>
         <TextBox x:Name="TitleBox" />
         <TextBlock Text="Enter description"/>
         <TextBox x:Name="DescBox"/>
-        <Button Content="Submit" Click="SubmitChanges" />
-        <Button Content="Meh" Click="ReturnToList" />
+        <Button Content="Submit" Click="SubmitChanges" HorizontalAlignment="Stretch"/>
+        <Button Content="Meh" Click="ReturnToList" HorizontalAlignment="Stretch"/>
     </StackPanel>
 </Page>

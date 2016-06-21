@@ -7,12 +7,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel Background="Wheat">
         <TextBox x:Name="LoginBox" Text="Enter your username here" GotFocus="TextBox_GotFocus"/>
         <TextBlock x:Name="ErrorBox" Text=""/>
         <Button Content="login"
-                Click="GoToListScreen"/>
+                Click="GoToListScreen"
+                HorizontalAlignment="Stretch"/>
         <Button Content="About"
-                Click="GoToAboutPage"/>
+                Click="GoToAboutPage"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"/>
     </StackPanel>
 </Page>

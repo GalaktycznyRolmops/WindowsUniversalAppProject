@@ -7,12 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="ABOUT:"/>
-        <TextBlock Text="Made by:"/>
-        <TextBlock Text="Dominik Szczeszyński"/>
-        <TextBlock Text="E-mail"/>
-        <TextBlock Text="dominiksznt@interia.pl"/>
-        <Button Content="Back" Click="GoToMainScreen"/>
+    <StackPanel Background="Wheat">
+        <TextBlock Text="ABOUT:" HorizontalAlignment="Center" FontSize="30"/>
+        <TextBlock Text="Made by:" HorizontalAlignment="Center"/>
+        <TextBlock Text="Dominik Szczeszyński" HorizontalAlignment="Center"/>
+        <TextBlock Text="E-mail" HorizontalAlignment="Center"/>
+        <TextBlock Text="dominiksznt@interia.pl" HorizontalAlignment="Center"/>
+        <Button Content="Back" Click="GoToMainScreen" HorizontalAlignment="Stretch"/>
     </StackPanel>
 </Page>
